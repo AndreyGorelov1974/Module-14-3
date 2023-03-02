@@ -25,6 +25,7 @@
 //размерность матриц
 const int n = 4;
 
+//функция сравнения матриц
 bool matrix_comparison(int arr1[][n], int arr2[][n]) {
 	for (int i = 0; i < n; ++i) {
 		for (int j = 0; j < n; ++j) {
@@ -53,14 +54,17 @@ int main()
 		}
 	}
 
+	//сравниваем матрицы
 	if (matrix_comparison(A, B)) {
 		std::cout << "The matrices are equal" << std::endl;
+		//если равны делаем В диагональной
 		for (int i = 0; i < n; ++i) {
 			for (int j = i + 1; j < n; ++j) {
 				B[i][j] = 0;
 				B[j][i] = 0;
 			}
 		}
+		//выводим матрицу В в консоль
 		for (int i = 0; i < n; ++i) {
 			for (int j = 0; j < n; ++j) {
 				std::cout << B[i][j] << " ";
