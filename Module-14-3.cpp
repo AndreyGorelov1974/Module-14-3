@@ -20,3 +20,45 @@
 Достаточно привести матрицу к диагональному виду. Делать алгоритмическое преобразование не нужно.
 Сравнение матриц и приведение матрицы к диагональному виду лучше оформить в виде отдельных функций.*/
 
+#include <iostream>
+
+//размерность матриц
+const int n = 4;
+
+bool matrix_comparison(int arr1[][n], int arr2[][n]) {
+	for (int i = 0; i < n; ++i) {
+		for (int j = 0; j < n; ++i) {
+			if (arr1[i][j] != arr2[i][j]) { return false; }
+		}
+	}
+	return true;
+}
+
+int main()
+{
+	int A[n][n];
+	int B[n][n];
+
+	//инициализация матрицы А
+	for (int i = 0; i < n; ++i) {
+		for (int j = 0; j < n; ++i) {
+			A[i][j] = 1;
+		}
+	}
+
+	//инициализация матрицы B
+	for (int i = 0; i < n; ++i) {
+		for (int j = 0; j < n; ++i) {
+			B[i][j] = 1;
+		}
+	}
+
+	if (matrix_comparison(A,B)){
+		std::cout << "The matrices are equal"  << std::endl;
+
+	}
+	else {
+		std::cout << "The matrices are not equal" << std::endl;
+
+	}
+}
