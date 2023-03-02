@@ -27,7 +27,7 @@ const int n = 4;
 
 bool matrix_comparison(int arr1[][n], int arr2[][n]) {
 	for (int i = 0; i < n; ++i) {
-		for (int j = 0; j < n; ++i) {
+		for (int j = 0; j < n; ++j) {
 			if (arr1[i][j] != arr2[i][j]) { return false; }
 		}
 	}
@@ -41,24 +41,34 @@ int main()
 
 	//инициализация матрицы А
 	for (int i = 0; i < n; ++i) {
-		for (int j = 0; j < n; ++i) {
-			A[i][j] = 1;
+		for (int j = 0; j < n; ++j) {
+			A[i][j] = 5;
 		}
 	}
 
 	//инициализация матрицы B
 	for (int i = 0; i < n; ++i) {
-		for (int j = 0; j < n; ++i) {
-			B[i][j] = 1;
+		for (int j = 0; j < n; ++j) {
+			B[i][j] = 5;
 		}
 	}
 
-	if (matrix_comparison(A,B)){
-		std::cout << "The matrices are equal"  << std::endl;
-
+	if (matrix_comparison(A, B)) {
+		std::cout << "The matrices are equal" << std::endl;
+		for (int i = 0; i < n; ++i) {
+			for (int j = i + 1; j < n; ++j) {
+				B[i][j] = 0;
+				B[j][i] = 0;
+			}
+		}
+		for (int i = 0; i < n; ++i) {
+			for (int j = 0; j < n; ++j) {
+				std::cout << B[i][j] << " ";
+			}
+			std::cout << std::endl;
+		}
 	}
 	else {
 		std::cout << "The matrices are not equal" << std::endl;
-
 	}
 }
